@@ -15,11 +15,18 @@ def column_check(sudoku, column_no):
     """
 
     # TODO: use set() to create a new set to record checked position. Since set doesn't allow unique items, if the set contains the same number, we know that there is a conflict
+    seen = set()  # to store numbers already seen
 
     for row in sudoku:
         # TODO: get the number using `column_no` as the index of the list item
         # TODO: If the number is not 0, then we check if the number is already in the set. If the number in the set, it means this number exists, directly return False; otherwise add this number to the set, and continue until all numbers are checked.
+        num = row[column_no]  # get the number in the column
+        if num != 0:          # ignore empty cells
+            if num in seen:
+                return False  # duplicate found
+            seen.add(num)      # add number to the set
 
+            
     return True
 
 
