@@ -14,6 +14,10 @@ def longest_string(strings):
 
     # TODO: write a loop, if the string in current iteration is longer
     # update the variable `index_of_longest`
+    for i in range(1, len(strings)):
+        if len(strings[i]) > len(strings[index_of_longest]):
+            index_of_longest = i  # update if current string is longer
+
 
     return index_of_longest
 
